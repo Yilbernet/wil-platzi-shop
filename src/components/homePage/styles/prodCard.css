@@ -1,0 +1,39 @@
+.prodcard {
+    width: 250px;
+    border: 1px solid;
+    padding: 15px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+.prodcard__img {
+    height: 200px;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+}
+.prodcard__title {
+    text-align: center;
+}
+.prodcard__list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+.prodcard__item {
+    width: 85%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 15px;
+}
+.prodcard__buttons {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 15px;
+}

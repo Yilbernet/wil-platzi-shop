@@ -1,0 +1,26 @@
+.filtername {
+    position: relative;
+    width: fit-content;
+}
+.filtername__input {
+    border: 2px solid red;
+    padding: 3px;
+    border-radius: 9px;
+}
+.filtername__input:focus-visible {
+    border-color: white;
+    outline: 2px solid red;
+}
+.filtername__icon {
+    position: absolute;
+    color: gray;
+    max-height: 60%;
+    right: 3%;
+    top: 25%;
+}
+.filtername__input:hover ~ .filtername__icon {
+    visibility: hidden;
+}
+.filtername__input:focus-visible ~ .filtername__icon {
+    visibility: hidden;
+}

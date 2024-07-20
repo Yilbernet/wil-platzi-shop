@@ -1,0 +1,82 @@
+.loginpage {
+    width: 100%;
+    height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.loginpage__logout {
+    width: 250px;
+    max-height: 450px;
+    border: 1px solid;
+    padding: 15px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+.loginpage__img {
+    border-radius: 10px;
+    overflow: hidden;
+}
+.loginpage__list {
+    width: 87%;
+    word-break: break-all;
+}
+.loginpage__item {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+}
+.loginpage__login {
+    max-width: 80%;
+    padding: 15px;
+    border: 1px solid;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+.loginpage__error {
+    color: red;
+    text-align: center;
+}
+.loginpage__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+.loginpage__field {
+    position: relative;
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+}
+.loginpage__field ion-icon {
+    color: grey;
+    position: absolute;
+    top: 12%;
+    right: 1.5%;
+    cursor: pointer;
+}
+.loginpage__p {
+    text-align: center;
+}
+.loginpage__modal {
+    background-color: grey;
+    color: springgreen;
+    padding: 5px 10px;
+    border-radius: 10px;
+    position: absolute;
+    text-align: center;
+    top: -75px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: top 1.5s;
+}
+.loginpage__modal.active {
+    top: 50px;
+    transition: top 1.5s;
+}

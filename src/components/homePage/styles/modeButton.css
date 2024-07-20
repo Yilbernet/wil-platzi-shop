@@ -1,0 +1,27 @@
+.modebutton {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.modebutton__border {
+    height: 20px;
+    width: 38px;
+    border: 1px solid;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+}
+.modebutton__switch {
+    width: 18px;
+    aspect-ratio: 1;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: left .25s;
+}
+.modebutton__border.active .modebutton__switch {
+    left: 50%;
+    transition: left .25s;
+}

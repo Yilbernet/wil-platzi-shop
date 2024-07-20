@@ -1,0 +1,15 @@
+.filterprice {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+.filterprice__field {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 5px;
+}
+.filterprice__field input {
+    width: 70px;
+}
