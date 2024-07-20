@@ -2,20 +2,27 @@ import React from 'react';
 import './styles/prodCard.css';
 import { useDispatch } from 'react-redux';
 import { addCart, updCart } from '../../store/slices/cart.slice';
+import { useNavigate } from 'react-router-dom';
 
 const ProdCard = ({prod}) => {
 
+    const email = localStorage.getItem('email_token');
+    const navigate = useNavigate();
     const dispatch = useDispatch();
 
     const handleAddCart = () => {
-        if (prod.quantity) {
-            dispatch(updCart({
-                id: prod.id,
-                quantity: 1,
-            }));
+        if (email?.includes('@')) {
+            if (prod.quantity) {
+                dispatch(updCart({
+                    id: prod.id,
+                    quantity: 1,
+                }));
+            } else {
+                prod.quantity = 1;
+                dispatch(addCart(prod));
+            }
         } else {
-            prod.quantity = 1;
-            dispatch(addCart(prod));
+            navigate('/login');
         }
     }
 
