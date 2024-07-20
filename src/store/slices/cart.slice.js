@@ -9,32 +9,32 @@ const cart = createSlice({
             return payload;
         },
         addCart: (state, {payload}) => {
-            if (state.findIndex(prod =>
-                prod.id===payload.id) === -1) {
-                const newCart = [...state, payload];
+            if (!state.find(prod => prod.id===payload.id)) {
+                const {item, quantity} = payload;
+                const product = {...item, quantity: quantity};
+                const newCart = [...state, product];
                 localStorage.setItem('products', JSON.stringify(newCart));
                 return newCart;
             }
         },
         delCart: (state, {payload}) => {
-            newCart = state.filter(prod.id!==payload);
+            const newCart = state.filter(prod => prod.id!==payload);
             localStorage.setItem('products', JSON.stringify(newCart));
             return newCart;
         },
-        updCart: (state, {payload}) => (
-            state.map(prod => {
-                const {id, quantity} = payload;
-                let newCart;
+        updCart: (state, {payload}) => {
+            const {id, quantity} = payload;
+            const newCart = state.map(prod => {
                 if (prod.id===id) {
-                    newCart = {...prod, quantity:
-                        prod.quantity + quantity,};
+                    return {...prod, quantity:
+                        prod.quantity + quantity};
                 } else {
-                    newCart = prod;
+                    return prod;
                 }
-                localStorage.setItem('products', JSON.stringify(newCart));
-                return newCart;
-            })
-        ),
+            });
+            localStorage.setItem('products', JSON.stringify(newCart));
+            return newCart;
+        },
     }
 });
 

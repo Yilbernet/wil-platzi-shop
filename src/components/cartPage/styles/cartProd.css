@@ -1,0 +1,30 @@
+.cartprod {
+   border: 1px solid;
+   width: 250px;
+   padding: 15px;
+   border-radius: 15px;
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   grid-template-rows: 2fr 3fr 1fr;
+   place-items: center;
+   gap: 0px 10px;
+}
+.cartprod__title {
+   text-align: center;
+   grid-column: span 3;
+}
+.cartprod__img {
+   border-radius: 15px;
+   overflow: hidden;
+}
+.cartprod__buttons {
+   display: flex;
+   gap: 10px;
+}
+.cartprod__list {
+   grid-column: span 3;
+   width: 100%;
+   display: flex;
+   justify-content: space-around;
+   gap: 10px;
+}

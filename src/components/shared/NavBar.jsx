@@ -2,13 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 const root = document.querySelector('#root');
 import './styles/navBar.css';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import CartProd from '../cartPage/CartProd';
+import { setCart } from '../../store/slices/cart.slice';
 
 const NavBar = () => {
 
   const [modal, setModal] = useState(false);
   const [alert, setAlert] = useState(false);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const cartSlice = useSelector(store => store.cartSlice);
@@ -42,6 +44,10 @@ const NavBar = () => {
     setModal(false);
   });
 
+  const handleReset = () => {
+    dispatch(setCart([]));
+  }
+
   const count = cartSlice.reduce(
     (cv, prod) => cv += prod.quantity, 0
   );
@@ -66,9 +72,12 @@ const NavBar = () => {
       </div>
       <div className={`navbar__modal ${modal ? 'active' : ''}`}
             onClick={handleStop}>
-        <button onClick={handleModal}>
-          <ion-icon name="close-sharp"></ion-icon>
-        </button>
+        <div className='navbar__buttons'>
+          <button onClick={handleReset}>Reset cart</button>
+          <button onClick={handleModal}>
+            <ion-icon name="close-sharp"></ion-icon>
+          </button>
+        </div>
         <div className='navbar__products'>
           {
             cartSlice.map(prod => (
