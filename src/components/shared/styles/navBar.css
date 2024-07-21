@@ -7,7 +7,7 @@
 .navbar__list {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 10px;
 }
 .navbar__item a {
     font-size: 1.75rem;
@@ -31,7 +31,7 @@
     font-weight: 900;
 }
 .navbar__modal {
-    background-color: blueviolet;
+    background-color: grey;
     position: fixed;
     top: 0;
     right: -100%;
@@ -49,7 +49,8 @@
     justify-content: space-between;
 }
 .navbar__products {
-    height: 80vh;
+    background-color: blueviolet;
+    height: 70vh;
     overflow-y: scroll;
     padding: 10px;
     display: flex;
@@ -58,9 +59,22 @@
     align-content: start;
     gap: 10px;
 }
-
-
-
+.navbar__totals {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+.navbar__totals ul {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.navbar__buy {
+    width: 50%;
+}
+.navbar__pay,
 .navbar__alert {
     background-color: grey;
     color: springgreen;
@@ -68,12 +82,13 @@
     padding: 5px 10px;
     border-radius: 10px;
     z-index: 10;
-    position: absolute;
+    position: fixed;
     top: -75px;
     left: 50%;
     transform: translateX(-50%);
     transition: top 1.5s;
 }
+.navbar__pay.active,
 .navbar__alert.active {
     top: 50px;
     transition: top 1.5s;

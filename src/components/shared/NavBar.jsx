@@ -8,8 +8,11 @@ import { setCart } from '../../store/slices/cart.slice';
 
 const NavBar = () => {
 
+  const records = JSON.parse(localStorage.getItem('purchases')) || [];
+  const [purchases, setPurchases] = useState(records);
   const [modal, setModal] = useState(false);
   const [alert, setAlert] = useState(false);
+  const [pay, setPay] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -25,6 +28,10 @@ const NavBar = () => {
       }, 500);
     }
   }, [cartSlice]);
+
+  useEffect(() => {
+    localStorage.setItem('purchases', JSON.stringify(purchases));
+  }, [purchases]);
   
   const handleModal = (event) => {
     const email = localStorage.getItem('email_token');
@@ -48,8 +55,25 @@ const NavBar = () => {
     dispatch(setCart([]));
   }
 
+  const handleBuy = () => {
+    setTimeout(() => {
+      setPay(true);
+      setTimeout(() => {
+        setPay(false);
+      }, 2500);
+    }, 500);
+    setPurchases([...purchases, ...cartSlice.map(
+      prod => { return {...prod, date: new Date()} }
+    )]);
+    dispatch(setCart([]));
+  }
+
   const count = cartSlice.reduce(
     (cv, prod) => cv += prod.quantity, 0
+  );
+
+  const total = cartSlice.reduce(
+    (cv, prod) => cv += prod.quantity * prod.price, 0
   );
 
   return (
@@ -60,6 +84,11 @@ const NavBar = () => {
             <li className='navbar__item'>
               <Link to='/login'>
                 <ion-icon name="person-sharp"></ion-icon>
+              </Link>
+            </li>
+            <li className='navbar__item'>
+              <Link to='/purchases'>
+                <ion-icon name="receipt"></ion-icon>
               </Link>
             </li>
             <li className='navbar__item'>
@@ -88,7 +117,15 @@ const NavBar = () => {
             ))
           }
         </div>
-        <div className='navbar__totals'></div>
+        <div className='navbar__totals'>
+          <ul>
+            <li><span>Products: </span><span>{count}</span></li>
+            <li><span>Total: </span><span>$ {total}</span></li>
+          </ul>
+          <button className='navbar__buy' onClick={handleBuy}>
+            Buy
+          </button>
+        </div>
       </div>
       {/* <picture>
           <source media="(min-width: 900px)" srcset="grande.png"/>
@@ -98,6 +135,9 @@ const NavBar = () => {
       </picture> */}
       <p className={`navbar__alert ${alert ? 'active' : ''}`}>
         The cart has been modified successfully ✔
+      </p>
+      <p className={`navbar__pay ${pay ? 'active' : ''}`}>
+        Thank you for you buy! go back soon! ✔
       </p>
     </div>
   )

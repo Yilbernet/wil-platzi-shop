@@ -49,6 +49,7 @@ select {
 }
 button {
   display: flex;
+  justify-content: center;
   align-items: center;
   border: none;
   padding: 3px 9px;
