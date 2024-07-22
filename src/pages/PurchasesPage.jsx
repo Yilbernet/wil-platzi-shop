@@ -6,9 +6,7 @@ import { useSelector } from 'react-redux';
 const PurchasesPage = () => {
 
     const cartSlice = useSelector(store => store.cartSlice);
-    const [purchases, setPurchases] = useState(
-        JSON.parse(localStorage.getItem('purchases'))
-    );
+    const [purchases, setPurchases] = useState([]);
 
     useEffect(() => {
         setPurchases(

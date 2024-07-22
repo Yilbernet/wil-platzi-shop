@@ -7,7 +7,13 @@ const PurchasesCard = ({prod}) => {
     <div className='purchasescard'>
       <h3 className='purchasescard__title'>{prod.title}</h3>
       <figure className='purchasescard__img'>
-        <img src={prod.images[0]} alt="product image" />
+        <img src={
+          prod.images[0].endsWith(']') ?
+          prod.images[0].slice(2, -2) : 
+          prod.images[0].startsWith('[') ?
+          prod.images[0].slice(2, -1) : 
+          prod.images[0]
+        } alt="product image" />
       </figure>
       <ul className='purchasescard__list'>
         <li className='purchasescard__item'><span>price</span><span>$ {prod.price}</span></li>

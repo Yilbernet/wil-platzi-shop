@@ -29,6 +29,10 @@ const ProdCard = ({prod}) => {
         }
     }
 
+    const handleViewDetail = () => {
+        navigate(`/product/${prod.id}`);
+    }
+
   return (
     <div className='prodcard'>
         <figure className='prodcard__img'>
@@ -49,7 +53,7 @@ const ProdCard = ({prod}) => {
             <li className='prodcard__item'><span>Price: </span><span>$ {prod.price}</span></li>
         </ul>
         <div className='prodcard__buttons'>
-            <button>View detail</button>
+            <button onClick={handleViewDetail}>View detail</button>
             <button onClick={handleAddCart}>Add to cart</button>
         </div>
     </div>

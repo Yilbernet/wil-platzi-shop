@@ -6,6 +6,7 @@ import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import ProtectedRoutes from './pages/ProtectedRoutes';
 import PurchasesPage from './pages/PurchasesPage';
+import ProductPage from './pages/ProductPage';
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
         <Route path='/' element={<HomePage/>}/>
         <Route path='/login' element={<LoginPage/>}/>
         <Route path='/register' element={<RegisterPage/>}/>
+        <Route path='/product/:id' element={<ProductPage/>}/>
         <Route element={<ProtectedRoutes/>}>
           <Route path='/purchases' element={<PurchasesPage/>}/>
         </Route>
