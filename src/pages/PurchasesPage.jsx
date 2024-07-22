@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PurchasesCard from '../components/purchasesPage/PurchasesCard';
 import './styles/purchasesPage.css';
 import { useSelector } from 'react-redux';
@@ -6,7 +6,15 @@ import { useSelector } from 'react-redux';
 const PurchasesPage = () => {
 
     const cartSlice = useSelector(store => store.cartSlice);
-    const purchases = JSON.parse(localStorage.getItem('purchases'));
+    const [purchases, setPurchases] = useState(
+        JSON.parse(localStorage.getItem('purchases'))
+    );
+
+    useEffect(() => {
+        setPurchases(
+            JSON.parse(localStorage.getItem('purchases'))
+        );
+    }, [cartSlice]);
 
     const dates = [];
     for (const prod of purchases) {
@@ -26,8 +34,6 @@ const PurchasesPage = () => {
             (cv, prod) => cv += prod.quantity * prod.price, 0
         );
     }
-
-    console.log(cartSlice);
 
   return (
     <div className='purchasespage'>

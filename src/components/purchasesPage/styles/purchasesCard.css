@@ -1,0 +1,26 @@
+.purchasescard {
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   grid-template-rows: repeat(2, 1fr);
+   place-items: center;
+   gap: 10px;
+}
+.purchasescard__title {
+   grid-column: span 3;
+   align-self: self-end;
+   text-align: center;
+}
+.purchasescard__img {
+   border-radius: 15px;
+   overflow: hidden;
+}
+.purchasescard__list {
+   grid-column: span 2;
+   display: flex;
+   gap: 10px;
+}
+.purchasescard__item {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}

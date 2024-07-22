@@ -88,7 +88,7 @@ const NavBar = () => {
             </li>
             <li className='navbar__item'>
               <Link to='/purchases'>
-                <ion-icon name="receipt"></ion-icon>
+                <ion-icon name="archive"></ion-icon>
               </Link>
             </li>
             <li className='navbar__item'>
