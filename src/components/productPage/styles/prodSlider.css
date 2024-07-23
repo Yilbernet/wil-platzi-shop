@@ -1,0 +1,32 @@
+.prodslider {
+   max-width: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.prodslider .splide {
+   max-width: 100%;
+}
+.prodslider .splide__slide {
+   height: 440px;
+   padding: 40px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.prodslider .splide__slide img {
+   border-radius: 40px;
+}
+.prodslider .splide__arrow:hover {
+   transform: translateY(-50%)
+              scale(1.05);
+}
+.prodslider .splide__pagination {
+   bottom: 1rem;
+}
+
+@media (width > 850px) {
+   .prodslider .splide {
+      max-width: 445px;
+   }
+}

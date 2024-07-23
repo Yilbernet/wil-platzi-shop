@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import ProdSlider from '../components/productPage/ProdSlider';
 import ProdInfo from '../components/productPage/ProdInfo';
 import ProdSimilar from '../components/productPage/ProdSimilar';
+import './styles/productPage.css';
 
 const ProductPage = () => {
 
@@ -19,7 +20,7 @@ const ProductPage = () => {
     console.log(product);
 
   return (
-    <div>
+    <div className='productpage'>
         <ProdSlider
             product={product}
         />

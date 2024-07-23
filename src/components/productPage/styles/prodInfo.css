@@ -1,0 +1,21 @@
+.prodinfo {
+   max-width: 445px;
+   padding: 40px;
+   display: flex;
+   flex-direction: column;
+   gap: 15px;
+}
+.prodinfo__container {
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+   gap: 10px;
+}
+.prodinfo__item:last-child {
+   padding-left: 15px;
+}
+.prodinfo__buttons {
+   display: flex;
+   align-items: center;
+   gap: 10px;
+}

@@ -1,8 +1,9 @@
 import React from 'react';
+import './styles/prodSimilar.css';
 
 const ProdSimilar = ({product}) => {
   return (
-    <div>ProdSimilar</div>
+    <div className='prodsimilar'>ProdSimilar</div>
   )
 }
 
