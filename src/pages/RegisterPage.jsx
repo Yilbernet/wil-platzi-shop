@@ -65,7 +65,6 @@ const RegisterPage = () => {
     }
 
     if (test) {
-        console.log(test);
         reset({
             name: `${test.name.first} ${test.name.last}`,
             email: test.email,

@@ -3,7 +3,9 @@ import './styles/prodSimilar.css';
 
 const ProdSimilar = ({product}) => {
   return (
-    <div className='prodsimilar'>ProdSimilar</div>
+    <div className='prodsimilar'>
+      <h2>Discover similar products</h2>
+    </div>
   )
 }
 

@@ -17,8 +17,6 @@ const ProductPage = () => {
         getProduct(path);
     }, []);
 
-    console.log(product);
-
   return (
     <div className='productpage'>
         <ProdSlider

@@ -29,6 +29,11 @@
     grid-template-columns: 1fr 2fr;
     align-items: center;
 }
+.loginpage__buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
 .loginpage__login {
     max-width: 80%;
     padding: 15px;

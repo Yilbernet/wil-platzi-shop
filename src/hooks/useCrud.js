@@ -24,7 +24,17 @@ const useCrud = () => {
         setApiData(err.response.data);
       });
   }
-  return [apiData, getApi, postApi];
+  // actualizar
+  const putApi = (path, data) => {
+    const url = `${urlBase}${path}`;
+    axios.put(url, data)
+      .then(res => {
+        // console.log(res.data);
+        setApiData(res.data);
+      })
+      .catch(err => console.log(err));
+  }
+  return [apiData, getApi, postApi, putApi];
 }
 
 export default useCrud;

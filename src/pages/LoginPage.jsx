@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import useCrud from '../hooks/useCrud';
 import { useDispatch, useSelector } from 'react-redux';
 import { delUser, getUserThunk } from '../store/slices/user.slice';
@@ -16,6 +16,7 @@ const LoginPage = () => {
   const [tokensObj,, createToken] = useCrud();
   const { handleSubmit, register, reset } = useForm();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const userSlice = useSelector(store => store.userSlice);
   const registerSlice = useSelector(store => store.registerSlice);
@@ -64,6 +65,10 @@ const LoginPage = () => {
     setToken();
   }
 
+  const handleModify = () => {
+    navigate('/modify');
+  }
+
   const handleEye = () => {
     setEyeIcon(!eyeIcon);
   }
@@ -82,7 +87,10 @@ const LoginPage = () => {
               <li className='loginpage__item'><span>Email: </span><span>{email}</span></li>
               <li className='loginpage__item'><span>Role: </span><span>{userSlice?.role}</span></li>
             </ul>
-            <button className='loginpage__logout-btn' onClick={handleLogout}>Logout</button>
+            <div className='loginpage__buttons'>
+              <button onClick={handleLogout}>Logout</button>
+              <button onClick={handleModify}>Modify</button>
+            </div>
           </div>
           :
           <div className='loginpage__login'>

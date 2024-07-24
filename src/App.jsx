@@ -7,6 +7,7 @@ import RegisterPage from './pages/RegisterPage';
 import ProtectedRoutes from './pages/ProtectedRoutes';
 import PurchasesPage from './pages/PurchasesPage';
 import ProductPage from './pages/ProductPage';
+import ModifyPage from './pages/ModifyPage';
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
         <Route path='/product/:id' element={<ProductPage/>}/>
         <Route element={<ProtectedRoutes/>}>
           <Route path='/purchases' element={<PurchasesPage/>}/>
+          <Route path='/modify' element={<ModifyPage/>}/>
         </Route>
         <Route path='*' element={<h2>Sorry, This page hasn't been found</h2>}/>
       </Routes>
