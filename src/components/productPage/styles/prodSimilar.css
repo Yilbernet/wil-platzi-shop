@@ -1,3 +1,15 @@
 .prodsimilar {
    width: 100%;
 }
+.prodsimilar__title {
+   padding-left: 20px;
+}
+.prodsimilar .splide__track {
+   padding: 30px 0;
+}
+.prodsimilar .splide__slide {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-evenly;
+   align-items: center;
+}

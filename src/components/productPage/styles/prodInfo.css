@@ -19,3 +19,6 @@
    align-items: center;
    gap: 10px;
 }
+.prodinfo__btn {
+   padding: 7px;
+}

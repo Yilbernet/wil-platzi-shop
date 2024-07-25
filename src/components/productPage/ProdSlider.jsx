@@ -13,12 +13,12 @@ const ProdSlider = ({product}) => {
           type: 'loop',
           autoplay: true,
           interval: 5000,
-          pauseOnFocus: true,
-          intersection: {
-            inView: {
-              autoplay: true,
-            },
-          },
+          // pauseOnFocus: true,
+          // intersection: {
+          //   inView: {
+          //     autoplay: true,
+          //   },
+          // },
         } }
         aria-label="My Favorite Images"
         extensions={{ Intersection }}

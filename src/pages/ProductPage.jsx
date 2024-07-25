@@ -15,7 +15,7 @@ const ProductPage = () => {
     useEffect(() => {
         const path = `/products/${id}`;
         getProduct(path);
-    }, []);
+    }, [id]);
 
   return (
     <div className='productpage'>
