@@ -21,8 +21,8 @@
     overflow: hidden;
 }
 .loginpage__list {
-    width: 100%;
-    word-break: break-all;
+    width: 90%;
+    /* word-break: break-all; */
 }
 .loginpage__item {
     display: flex;

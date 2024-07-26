@@ -65,6 +65,15 @@ const LoginPage = () => {
     setToken();
   }
 
+  const longEmail = () => {
+    let newEmail = email?.split('@');
+    if (email?.length > 26) {
+      return newEmail.join(' @');
+    } else {
+      return newEmail?.join('@');
+    }
+  }
+
   const handleModify = () => {
     navigate('/modify');
   }
@@ -84,7 +93,7 @@ const LoginPage = () => {
             <ul className='loginpage__list'>
               <li className='loginpage__item'><span>Id: </span><span>{userSlice?.id}</span></li>
               <li className='loginpage__item'><span>Name: </span><span>{userSlice?.name}</span></li>
-              <li className='loginpage__item'><span>Email: </span><span>{email}</span></li>
+              <li className='loginpage__item'><span>Email: </span><span>{longEmail()}</span></li>
               <li className='loginpage__item'><span>Role: </span><span>{userSlice?.role}</span></li>
             </ul>
             <div className='loginpage__buttons'>
