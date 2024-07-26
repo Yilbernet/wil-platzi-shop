@@ -21,13 +21,16 @@
     overflow: hidden;
 }
 .loginpage__list {
-    width: 87%;
+    width: 100%;
     word-break: break-all;
 }
 .loginpage__item {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+.loginpage__item span:first-child {
+    padding-left: 15px;
+    color: grey;
 }
 .loginpage__buttons {
     width: 100%;
@@ -56,14 +59,17 @@
 }
 .loginpage__field {
     position: relative;
-    display: grid;
-    grid-template-columns: 2fr 3fr;
+    display: flex;
+    flex-direction: column;
+}
+.loginpage__field input {
+    width: 175px;
 }
 .loginpage__field ion-icon {
     color: grey;
     position: absolute;
-    top: 12%;
-    right: 1.5%;
+    bottom: 5%;
+    right: 2%;
     cursor: pointer;
 }
 .loginpage__p {

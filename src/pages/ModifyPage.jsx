@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { useSelector } from 'react-redux';
 import useCrud from '../hooks/useCrud';
 import { useNavigate } from 'react-router-dom';
+import './styles/modifyPage.css';
 
 const ModifyPage = () => {
 
@@ -46,37 +47,37 @@ const ModifyPage = () => {
     }
 
   return (
-    <div>
-        <form onSubmit={handleSubmit(submit)}>
-            <div>
+    <div className='modifypage'>
+        <form className='modifypage__form' onSubmit={handleSubmit(submit)}>
+            <div className='modifypage__field'>
                 <label htmlFor="avatar">Avatar</label>
                 <input {...register('avatar')} id='avatar' type="text" />
             </div>
-            <div>
+            <div className='modifypage__field'>
                 <label htmlFor="name">Name</label>
                 <input {...register('name')} id='name' type="text" />
             </div>
-            <div>
+            <div className='modifypage__field'>
                 <label htmlFor="email">Email</label>
                 <input {...register('email')} id='email' type="text" />
             </div>
-            <div>
+            <div className='modifypage__field'>
                 <label htmlFor="oldPassword">Old password</label>
                 <input {...register('oldPassword')} id='oldPassword' type="text" />
             </div>
-            <div>
+            <div className='modifypage__field'>
                 <label htmlFor="newPassword">New password</label>
                 <input {...register('newPassword')} id='newPassword' type="text" />
             </div>
-            <div>
+            <div className='modifypage__field'>
                 <label htmlFor="repeatPassword">Repeat new password</label>
                 <input {...register('repeatPassword')} id='repeatPassword' type="text" />
             </div>
-            <div>
+            <div className='modifypage__field'>
                 <label htmlFor="role">Role</label>
                 <input {...register('role')} id='role' type="text" />
             </div>
-            <button>Modify</button>
+            <button className='modifypage__btn'>Modify</button>
         </form>
     </div>
   )

@@ -1,6 +1,6 @@
 .prodinfo {
-   max-width: 445px;
-   padding: 40px;
+   max-width: 425px;
+   padding: 20px;
    display: flex;
    flex-direction: column;
    gap: 15px;

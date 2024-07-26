@@ -3,20 +3,54 @@
     border: 1px solid;
     padding: 15px;
     border-radius: 15px;
+    background-color: plum;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     gap: 15px;
 }
+.prodcard:hover {
+    box-shadow: 0 0 15px 5px slateblue;
+}
+.dark .prodcard {
+    background-color: slateblue;
+}
+.dark .prodcard:hover {
+    box-shadow: 0 0 15px 5px plum;
+}
 .prodcard__img {
+    position: relative;
+    cursor: pointer;
     height: 200px;
     border-radius: 10px;
     overflow: hidden;
     display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.prodcard__img img:first-child {
+    opacity: 1;
+    transition: opacity .5s;
+}
+.prodcard__img img:last-child {
+    position: absolute;
+    opacity: 0;
+    transition: opacity .5s;
+}
+.prodcard__img:hover img:first-child {
+    opacity: 0;
+    transition: opacity .5s;
+}
+.prodcard__img:hover img:last-child {
+    opacity: 1;
+    transition: opacity .5s;
 }
 .prodcard__title {
     text-align: center;
+    min-height: 75px;
+    display: flex;
+    align-items: center;
 }
 .prodcard__list {
     width: 100%;

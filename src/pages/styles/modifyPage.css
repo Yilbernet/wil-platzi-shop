@@ -1,0 +1,29 @@
+.modifypage {
+    width: 100%;
+    height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modifypage__form {
+    border: 1px solid;
+    padding: 15px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+.modifypage__field {
+    display: flex;
+    flex-direction: column;
+}
+.modifypage__field label {
+    padding-left: 15px;
+}
+.modifypage__field input {
+    width: 175px;
+}
+.modifypage__btn {
+    margin-top: 10px;
+}

@@ -9,17 +9,17 @@
 }
 .prodslider .splide__slide {
    max-height: 440px;
-   padding: 40px;
+   padding: 35px;
    display: flex;
    justify-content: center;
    align-items: center;
 }
 .prodslider .splide__slide img {
-   border-radius: 40px;
+   border-radius: 35px;
 }
 
 @media (width > 850px) {
    .prodslider .splide {
-      max-width: 445px;
+      max-width: 425px;
    }
 }

@@ -15,6 +15,7 @@ const ProductPage = () => {
     useEffect(() => {
         const path = `/products/${id}`;
         getProduct(path);
+        scroll(0, 0);
     }, [id]);
 
   return (

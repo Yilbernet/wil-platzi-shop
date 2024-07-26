@@ -29,8 +29,11 @@ const ProdSimilar = ({product}) => {
           type: 'loop',
           autoplay: true,
           interval: 5000,
-          perPage: 3,
+          perPage: 4,
           breakpoints: {
+            1200: {
+              perPage: 3,
+            },
             910: {
               perPage: 2,
             },
@@ -38,7 +41,7 @@ const ProdSimilar = ({product}) => {
               perPage: 1,
             },
           },
-          gap: '15px',
+          gap: '30px',
           padding: '30px',
         } }
         extensions={{ Intersection }}

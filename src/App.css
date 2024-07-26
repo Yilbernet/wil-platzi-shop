@@ -60,10 +60,16 @@ button:hover {
   transform: scale(1.05);
   transition: transform .25s;
 }
-.splide__arrow:hover {
+button.splide__arrow:hover {
   transform: translateY(-50%)
              scale(1.05);
 }
-.splide__pagination {
-  bottom: 1rem;
+button.splide__arrow--prev {
+  left: .5rem;
+}
+button.splide__arrow--next {
+  right: .5rem;
+}
+ul.splide__pagination {
+  bottom: .5rem;
 }

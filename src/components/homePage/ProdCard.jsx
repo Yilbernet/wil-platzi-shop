@@ -44,7 +44,17 @@ const ProdCard = ({prod}) => {
                     prod.images[0].slice(2, -1) : 
                     prod.images[0]
                 }
-                alt="product image"
+                alt="product image 1"
+            />
+            <img
+                src={
+                    prod.images[1]?.endsWith(']') ?
+                    prod.images[1]?.slice(2, -2) : 
+                    prod.images[1]?.startsWith('[') ?
+                    prod.images[1]?.slice(2, -1) : 
+                    prod.images[1]
+                }
+                alt="product image 2"
             />
         </figure>
         <h3 className='prodcard__title'>{prod.title}</h3>
