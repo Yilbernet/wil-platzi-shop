@@ -6,6 +6,7 @@
     align-items: center;
 }
 .modifypage__form {
+    width: 250px;
     border: 1px solid;
     padding: 15px;
     border-radius: 15px;
@@ -15,9 +16,11 @@
     gap: 5px;
 }
 .modifypage__field {
+    width: 100%;
     position: relative;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 .modifypage__field label {
     padding-left: 15px;
@@ -29,8 +32,22 @@
     color: grey;
     cursor: pointer;
     position: absolute;
-    bottom: 5%;
-    right: 2%;
+    top: 23px;
+    right: 25px;
+}
+.modifypage__field.active::after {
+    content: 'Error';
+    color: red;
+    text-align: center;
+}
+.modifypage__field.active:nth-of-type(4)::after {
+    content: "the password is wrong";
+}
+.modifypage__field.active:nth-of-type(5)::after {
+    content: 'the passwords are not equals';
+}
+.modifypage__field.active input {
+    border-color: red;
 }
 .modifypage__btn {
     margin-top: 10px;

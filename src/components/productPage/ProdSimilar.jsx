@@ -29,6 +29,11 @@ const ProdSimilar = ({product}) => {
           type: 'loop',
           autoplay: true,
           interval: 5000,
+          intersection: {
+            inView: {
+              autoplay: true,
+            },
+          },
           perPage: 4,
           breakpoints: {
             1200: {

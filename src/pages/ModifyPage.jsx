@@ -31,21 +31,18 @@ const ModifyPage = () => {
       });
     }, []);
 
-    const updateUser = () => {
-        updUser(`/users/${userSlice.id}`, {
-                avatar: data.avatar || userSlice.avatar,
-                name: data.name || userSlice.name,
-                email: data.email || userSlice.email,
-                password: data.newPassword || userSlice.password,
-                role: data.role || userSlice.role,
-            }
-        );
-    }
-
     const submit = data => {
+        setPassErr2(false);
         if (data.oldPassword === userSlice.password) {
+            setPassErr1(false);
             if (data.newPassword === data.repeatPassword) {
-                updateUser();
+                updUser(`/users/${userSlice.id}`, {
+                    avatar: data.avatar || userSlice.avatar,
+                    name: data.name || userSlice.name,
+                    email: data.email || userSlice.email,
+                    password: data.newPassword || userSlice.password,
+                    role: data.role || userSlice.role,
+                });
             } else {
                 setPassErr2(true);
             }

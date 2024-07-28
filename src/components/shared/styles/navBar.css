@@ -45,6 +45,7 @@
     transition: right .5s;
 }
 .navbar__buttons {
+    padding: 10px;
     display: flex;
     justify-content: space-between;
 }

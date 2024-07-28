@@ -56,6 +56,9 @@ const NavBar = () => {
   }
 
   const handleBuy = () => {
+    if (cartSlice.length < 1) {
+      return;
+    }
     setTimeout(() => {
       setPay(true);
       setTimeout(() => {
