@@ -8,6 +8,7 @@ import ProtectedRoutes from './pages/ProtectedRoutes';
 import PurchasesPage from './pages/PurchasesPage';
 import ProductPage from './pages/ProductPage';
 import ModifyPage from './pages/ModifyPage';
+import EditStorePage from './pages/EditStorePage';
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
         <Route element={<ProtectedRoutes/>}>
           <Route path='/purchases' element={<PurchasesPage/>}/>
           <Route path='/modify' element={<ModifyPage/>}/>
+          <Route path='/edit-store' element={<EditStorePage/>}/>
         </Route>
         <Route path='*' element={<h2>Sorry, This page hasn't been found</h2>}/>
       </Routes>

@@ -24,6 +24,17 @@ const useCrud = () => {
         setApiData(err.response.data);
       });
   }
+  // borrar
+  const delApi = (path, id) => {
+    const url = `${urlBase}${path}/${id}`;
+    axios.delete(url)
+      .then(res => {
+        setApiData(apiData.filter(
+          prod => prod.id !== id
+        ));
+      })
+      .catch(err => console.log(err));
+  }
   // actualizar
   const putApi = (path, data) => {
     const url = `${urlBase}${path}`;
@@ -34,7 +45,7 @@ const useCrud = () => {
       })
       .catch(err => console.log(err));
   }
-  return [apiData, getApi, postApi, putApi];
+  return [apiData, getApi, postApi, delApi, putApi];
 }
 
 export default useCrud;

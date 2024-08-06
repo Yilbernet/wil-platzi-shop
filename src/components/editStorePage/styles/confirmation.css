@@ -1,0 +1,30 @@
+.confirmation {
+    background-color: #0009;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(0);
+    transition: transform .5s;
+}
+.confirmation.active {
+    transform: scale(1);
+    transition: transform .5s;
+}
+.confirmation__container {
+    background-color: gray;
+    padding: 20px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+.confirmation__buttons {
+    display: flex;
+    gap: 20px;
+}

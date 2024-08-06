@@ -82,6 +82,10 @@ const LoginPage = () => {
     setEyeIcon(!eyeIcon);
   }
 
+  const handleEditStore = () => {
+    navigate('/edit-store');
+  }
+
   return (
     <div className='loginpage'>
       {
@@ -100,6 +104,12 @@ const LoginPage = () => {
               <button onClick={handleLogout}>Logout</button>
               <button onClick={handleModify}>Modify</button>
             </div>
+            {
+              userSlice?.role==='admin'?
+              <button className='loginpage__logout-btn' onClick={handleEditStore}>
+                Edit store
+              </button>:''
+            }
           </div>
           :
           <div className='loginpage__login'>

@@ -1,0 +1,13 @@
+.editstore {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.editstore__container {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 20px;
+}
