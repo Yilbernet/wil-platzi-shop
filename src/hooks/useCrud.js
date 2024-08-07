@@ -36,12 +36,18 @@ const useCrud = () => {
       .catch(err => console.log(err));
   }
   // actualizar
-  const putApi = (path, data) => {
-    const url = `${urlBase}${path}`;
+  const putApi = (path, data, id) => {
+    const url = `${urlBase}${path}/${id}`;
     axios.put(url, data)
       .then(res => {
         // console.log(res.data);
-        setApiData(res.data);
+        if (Array.isArray(apiData)) {
+          setApiData(apiData.map(prod =>
+            prod.id===id ? res.data : prod
+          ));
+        } else {
+          setApiData(res.data);
+        }
       })
       .catch(err => console.log(err));
   }

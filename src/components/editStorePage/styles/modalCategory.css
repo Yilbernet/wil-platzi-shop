@@ -1,47 +1,35 @@
-.modalcreate {
+.modalcategory {
     background-color: #0009;
+    width: 100%;
+    height: 100vh;
     position: fixed;
     top: 0;
     z-index: 10;
-    width: 100%;
-    height: 100vh;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     transform: scale(0);
     transition: transform .5s;
 }
-.modalcreate.active {
+.modalcategory.active {
     transform: scale(1);
     transition: transform .5s;
 }
-.modalcreate__error {
-    color: red;
-}
-.modalcreate__form {
+.modalcategory__form {
     background-color: gray;
-    width: 250px;
     padding: 20px;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
     gap: 5px;
 }
-.modalcreate__close {
-    align-self: self-end;
+.modalcategory__close {
+    align-self: flex-end;
 }
-.modalcreate__field {
+.modalcategory__field {
     display: flex;
     flex-direction: column;
 }
-.modalcreate__field textarea {
-    padding: 2.5px;
-    border-radius: 5px;
-    field-sizing: content;
-    resize: none;
-    max-height: 90px;
-}
-.modalcreate__btn {
+.modalcategory__btn {
     margin-top: 10px;
 }

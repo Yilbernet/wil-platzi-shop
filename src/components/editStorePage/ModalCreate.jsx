@@ -69,7 +69,13 @@ const ModalCreate = ({form, setForm, createProduct,
         }
         const description = areaText.current.value.trim();
         if (updateSlice) {
-            console.log('quería actualizar');
+            updateProduct('/products', {
+                title: data.title,
+                price: data.price,
+                description: description,
+                categoryId: data.categoryId,
+                images: images,
+            }, updateSlice.id);
             dispatch(setUpdate(null));
         } else {
             createProduct('/products', {

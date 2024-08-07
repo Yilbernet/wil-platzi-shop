@@ -1,14 +1,14 @@
 import React from 'react';
 import './styles/confirmation.css';
 
-const Confirmation = ({confirm, setConfirm, deleteProduct, prod}) => {
+const Confirmation = ({confirm, setConfirm, deleteProduct, prod, path}) => {
 
     const handleCancel = () => {
         setConfirm(false);
     }
 
     const handleConfirm = () => {
-        deleteProduct(`/products`, prod.id);
+        deleteProduct(path, prod.id);
         setConfirm(false);
     }
 

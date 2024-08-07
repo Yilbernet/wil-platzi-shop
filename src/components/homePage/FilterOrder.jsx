@@ -16,10 +16,11 @@ const FilterOrder = ({setOrder}) => {
     <div className='filterorder'>
       <h3>Order by</h3>
       <select ref={selectChange} onChange={handleChange}>
-          <option value={0}>Title ( a - z )</option>
-          <option value={1}>Title ( z - a )</option>
-          <option value={2}>Price ( min - max )</option>
-          <option value={3}>Price ( max - min )</option>
+          <option value={0}>Default</option>
+          <option value={1}>Title ( a - z )</option>
+          <option value={2}>Title ( z - a )</option>
+          <option value={3}>Price ( min - max )</option>
+          <option value={4}>Price ( max - min )</option>
       </select>
     </div>
   )

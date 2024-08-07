@@ -29,20 +29,17 @@ const HomePage = () => {
 
     useEffect(() => {
         setPage(1);
-    }, [title, category, price]);
+    }, [title, category, price, order]);
 
     // console.log(products);
 
     const prodFilters = (prod) => {
-        const perImage = !prod.images[0].includes('/any') &&
-                         !prod.images[0].includes('google') &&
-                         !prod.images[0].includes('pixabay') &&
-                         !prod.images[0].includes('example') &&
-                         !prod.images[0].includes('adidas') &&
-                         !prod.images[0].includes('/640/480') &&
-                         !prod.images[0].includes('1.png') &&
-                         !prod.images[0].includes('hihi.jpg') &&
-                         !prod.images[0].includes('/api');
+        const perImage = prod.images[0].includes('https://') &&
+                        (prod.images[0].includes('.png') ||
+                        prod.images[0].includes('.jpg') ||
+                        prod.images[0].includes('.gif') ||
+                        prod.images[0].includes('.webp') ||
+                        prod.images[0].includes('.jpeg'));
         const perTitle = title.every(text =>
             prod.title.toLowerCase().includes(text)
         );
@@ -55,11 +52,12 @@ const HomePage = () => {
     }
 
     const prodSort = (a, b) => {
+        const idPlus = a.id - b.id;
         const pricePlus = a.price - b.price;
         const priceless = b.price - a.price;
         const titlePlus = a.title.localeCompare(b.title);
         const titleLess = b.title.localeCompare(a.title);
-        const orders = [titlePlus, titleLess,
+        const orders = [idPlus, titlePlus, titleLess,
                         pricePlus, priceless];
         return orders[order];
     }

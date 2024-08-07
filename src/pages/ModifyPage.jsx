@@ -36,13 +36,13 @@ const ModifyPage = () => {
         if (data.oldPassword === userSlice.password) {
             setPassErr1(false);
             if (data.newPassword === data.repeatPassword) {
-                updUser(`/users/${userSlice.id}`, {
+                updUser(`/users`, {
                     avatar: data.avatar || userSlice.avatar,
                     name: data.name || userSlice.name,
                     email: data.email || userSlice.email,
                     password: data.newPassword || userSlice.password,
                     role: data.role || userSlice.role,
-                });
+                }, userSlice.id);
             } else {
                 setPassErr2(true);
             }

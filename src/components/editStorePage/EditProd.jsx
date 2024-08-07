@@ -40,6 +40,7 @@ const EditProd = ({prod, deleteProduct}) => {
           setConfirm={setConfirm}
           deleteProduct={deleteProduct}
           prod={prod}
+          path='/products'
         />
     </div>
   )
