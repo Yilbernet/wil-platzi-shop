@@ -42,6 +42,8 @@ const ProdCard = ({prod}) => {
                     prod.images[0].slice(2, -2) : 
                     prod.images[0].startsWith('[') ?
                     prod.images[0].slice(2, -1) : 
+                    prod.images[0].endsWith('"') ?
+                    prod.images[0].slice(1, -1) : 
                     prod.images[0]
                 }
                 alt="product image 1"
@@ -49,9 +51,11 @@ const ProdCard = ({prod}) => {
             <img
                 src={
                     prod.images[1]?.endsWith(']') ?
-                    prod.images[1]?.slice(2, -2) : 
+                    prod.images[1]?.slice(1, -2) : 
                     prod.images[1]?.startsWith('[') ?
                     prod.images[1]?.slice(2, -1) : 
+                    prod.images[1]?.endsWith('"') ?
+                    prod.images[1]?.slice(1, -1) : 
                     prod.images[1]
                 }
                 alt="product image 2"

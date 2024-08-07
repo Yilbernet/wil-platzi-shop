@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import './styles/editProd.css';
 import Confirmation from './Confirmation';
+import { setUpdate } from '../../store/slices/update.slice';
+import { useDispatch } from 'react-redux';
 
 const EditProd = ({prod, deleteProduct}) => {
 
   const [confirm, setConfirm] = useState(false);
+  const dispatch = useDispatch();
 
   const handleEdit = () => {
-    //
+    dispatch(setUpdate(prod));
   }
 
   const handleDelete = () => {

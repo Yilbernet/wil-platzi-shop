@@ -3,6 +3,8 @@
     border: 1px solid;
     padding: 10px;
     border-radius: 20px;
+    position: relative;
+    overflow: hidden;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr 2fr;

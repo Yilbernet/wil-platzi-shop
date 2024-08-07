@@ -13,7 +13,7 @@ const ModifyPage = () => {
     const [passErr1, setPassErr1] = useState();
     const [passErr2, setPassErr2] = useState();
 
-    const [modify,,, updUser] = useCrud();
+    const [modify,,,, updUser] = useCrud();
     const userSlice = useSelector(store => store.userSlice);
     const {handleSubmit, register, reset} = useForm();
     const navigate = useNavigate();

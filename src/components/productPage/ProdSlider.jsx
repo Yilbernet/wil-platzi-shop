@@ -25,10 +25,15 @@ const ProdSlider = ({product}) => {
           product?.images.map(image => (
             <SplideSlide key={image}>
               <img src={
-                image.endsWith(']') ?
+                image.endsWith(']') &&
+                image.startsWith('[') ?
                 image.slice(2, -2) : 
+                image.endsWith(']') ?
+                image.slice(1, -2) : 
                 image.startsWith('[') ?
                 image.slice(2, -1) : 
+                image.endsWith('"') ?
+                image.slice(1, -1) :
                 image
               } alt="Product image"/>
             </SplideSlide>
