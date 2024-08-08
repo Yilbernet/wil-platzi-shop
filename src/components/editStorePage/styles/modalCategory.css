@@ -6,6 +6,7 @@
     top: 0;
     z-index: 10;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     transform: scale(0);
@@ -14,6 +15,9 @@
 .modalcategory.active {
     transform: scale(1);
     transition: transform .5s;
+}
+.modalcategory__error {
+    color: red;
 }
 .modalcategory__form {
     background-color: gray;

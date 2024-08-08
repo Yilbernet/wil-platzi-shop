@@ -29,7 +29,7 @@ const ModalCreate = ({form, setForm, createProduct,
     }
 
     useEffect(() => {
-        if (updateSlice) {
+        if (updateSlice?.title) {
             reset({
                 title: updateSlice.title,
                 price: updateSlice.price,
@@ -56,6 +56,7 @@ const ModalCreate = ({form, setForm, createProduct,
                 image3: '',
             });
             areaText.current.value = '';
+            setErrorCreate();
             setForm(false);
         }
     }, [products]);
@@ -99,6 +100,7 @@ const ModalCreate = ({form, setForm, createProduct,
         });
         areaText.current.value = '';
         dispatch(setUpdate(null));
+        setErrorCreate();
         setForm(false);
     }
 
