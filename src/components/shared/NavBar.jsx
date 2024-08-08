@@ -130,12 +130,6 @@ const NavBar = () => {
           </button>
         </div>
       </div>
-      {/* <picture>
-          <source media="(min-width: 900px)" srcset="grande.png"/>
-          <source media="(min-width: 550px)" srcset="media.png"/>
-          <source srcset="peque.png"/>
-          <img src="predeterminado.png" alt="" />
-      </picture> */}
       <p className={`navbar__alert ${alert ? 'active' : ''}`}>
         The cart has been modified successfully ✔
       </p>

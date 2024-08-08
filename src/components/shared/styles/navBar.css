@@ -1,4 +1,5 @@
 .navbar__navbar {
+    background-color: lightgrey;
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;

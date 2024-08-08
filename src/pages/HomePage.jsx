@@ -9,6 +9,7 @@ import FilterOrder, { resetOrder } from '../components/homePage/FilterOrder';
 import ModeButton from '../components/homePage/ModeButton';
 import MenuButton from '../components/homePage/MenuButton';
 import Pagination from '../components/homePage/Pagination';
+import SliderBanners from '../components/shared/SliderBanners';
 
 const HomePage = () => {
 
@@ -97,6 +98,7 @@ const HomePage = () => {
 
   return (
     <div className='homepage' onClick={handleMenu}>
+        <SliderBanners/>
         <div
             onClick={handleStop}
             className={`homepage__filters ${menu ? 'active' : ''}`}

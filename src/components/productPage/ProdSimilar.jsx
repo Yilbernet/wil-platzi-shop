@@ -18,7 +18,14 @@ const ProdSimilar = ({product}) => {
   }, [product]);
 
   const prodFilter = (prod) => {
-    return prod.id!==product.id;
+    const perImage = prod.images[0].includes('https://') &&
+                      (prod.images[0].includes('.png') ||
+                      prod.images[0].includes('.jpg') ||
+                      prod.images[0].includes('.gif') ||
+                      prod.images[0].includes('.webp') ||
+                      prod.images[0].includes('.jpeg'));
+    const perSame = prod.id!==product.id;
+    return perImage && perSame;
   }
 
   return (

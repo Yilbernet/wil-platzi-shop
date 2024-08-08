@@ -1,0 +1,9 @@
+.sliderbanners .splide__slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sliderbanners__img,
+.sliderbanners__img img {
+    width: 100%;
+}

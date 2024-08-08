@@ -23,6 +23,8 @@
     right: 0;
 }
 .homepage__menu {
+    background-color: lightgrey;
+    padding: 10PX;
     display: flex;
     justify-content: space-around;
 }
