@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import './styles/modalCreate.css';
 import { useDispatch, useSelector } from 'react-redux';
@@ -10,7 +10,7 @@ const ModalCreate = ({form, setForm, createProduct,
     const [errorCreate, setErrorCreate] = useState();
     const { handleSubmit, register, reset } = useForm();
     const updateSlice = useSelector(store => store.updateSlice);
-    const areaText = useRef();
+    // const areaText = useRef();
     const dispatch = useDispatch();
 
     const format = (image) => {
@@ -33,12 +33,13 @@ const ModalCreate = ({form, setForm, createProduct,
             reset({
                 title: updateSlice.title,
                 price: updateSlice.price,
+                description: updateSlice.description,
                 categoryId: updateSlice.category.id,
                 image1: format(updateSlice.images[0]),
                 image2: format(updateSlice.images[1]),
                 image3: format(updateSlice.images[2]),
             });
-            areaText.current.value = updateSlice.description;
+            // areaText.current.value = updateSlice.description;
             setForm(true);
         }
     }, [updateSlice]);
@@ -50,12 +51,13 @@ const ModalCreate = ({form, setForm, createProduct,
             reset({
                 title: '',
                 price: '',
+                description: '',
                 categoryId: '',
                 image1: '',
                 image2: '',
                 image3: '',
             });
-            areaText.current.value = '';
+            // areaText.current.value = '';
             setErrorCreate();
             setForm(false);
         }
@@ -68,12 +70,12 @@ const ModalCreate = ({form, setForm, createProduct,
                 images.push(data[`image${i+1}`]);
             }
         }
-        const description = areaText.current.value.trim();
+        // const description = areaText.current.value.trim();
         if (updateSlice) {
             updateProduct('/products', {
                 title: data.title,
                 price: data.price,
-                description: description,
+                description: data.description,
                 categoryId: data.categoryId,
                 images: images,
             }, updateSlice.id);
@@ -82,7 +84,7 @@ const ModalCreate = ({form, setForm, createProduct,
             createProduct('/products', {
                 title: data.title,
                 price: data.price,
-                description: description,
+                description: data.description,
                 categoryId: data.categoryId,
                 images: images,
             });
@@ -93,12 +95,13 @@ const ModalCreate = ({form, setForm, createProduct,
         reset({
             title: '',
             price: '',
+            description: '',
             categoryId: '',
             image1: '',
             image2: '',
             image3: '',
         });
-        areaText.current.value = '';
+        // areaText.current.value = '';
         dispatch(setUpdate(null));
         setErrorCreate();
         setForm(false);
@@ -122,12 +125,22 @@ const ModalCreate = ({form, setForm, createProduct,
             </div>
             <div className='modalcreate__field'>
                 <label htmlFor="description">Description</label>
-                <textarea ref={areaText} type="text" id="description">
+                <textarea
+                    type="text" id="description"
+                    {...register('description')}
+                >
                 </textarea>
             </div>
             <div className='modalcreate__field'>
                 <label htmlFor="categoryId">Category</label>
-                <input {...register('categoryId')} id='categoryId' type="text" />
+                <select
+                    id='categoryId' type="text"
+                    {...register('categoryId')}
+                >
+                    <option value={0}>0</option>
+                    <option value={1}>1</option>
+                    <option value={2}>2</option>
+                </select>
             </div>
             <div className='modalcreate__field'>
                 <label htmlFor="image1">Image1</label>
