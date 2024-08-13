@@ -3,14 +3,14 @@ import { useForm } from 'react-hook-form';
 import './styles/modalCreate.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { setUpdate } from '../../store/slices/update.slice';
+import useCrud from '../../hooks/useCrud';
 
 const ModalCreate = ({form, setForm, createProduct,
-    updateProduct, products}) => {
+    updateProduct, products, categories}) => {
 
     const [errorCreate, setErrorCreate] = useState();
     const { handleSubmit, register, reset } = useForm();
     const updateSlice = useSelector(store => store.updateSlice);
-    // const areaText = useRef();
     const dispatch = useDispatch();
 
     const format = (image) => {
@@ -39,7 +39,6 @@ const ModalCreate = ({form, setForm, createProduct,
                 image2: format(updateSlice.images[1]),
                 image3: format(updateSlice.images[2]),
             });
-            // areaText.current.value = updateSlice.description;
             setForm(true);
         }
     }, [updateSlice]);
@@ -57,7 +56,6 @@ const ModalCreate = ({form, setForm, createProduct,
                 image2: '',
                 image3: '',
             });
-            // areaText.current.value = '';
             setErrorCreate();
             setForm(false);
         }
@@ -70,7 +68,6 @@ const ModalCreate = ({form, setForm, createProduct,
                 images.push(data[`image${i+1}`]);
             }
         }
-        // const description = areaText.current.value.trim();
         if (updateSlice) {
             updateProduct('/products', {
                 title: data.title,
@@ -101,7 +98,6 @@ const ModalCreate = ({form, setForm, createProduct,
             image2: '',
             image3: '',
         });
-        // areaText.current.value = '';
         dispatch(setUpdate(null));
         setErrorCreate();
         setForm(false);
@@ -109,7 +105,9 @@ const ModalCreate = ({form, setForm, createProduct,
 
   return (
     <div className={`modalcreate ${form ? 'active' : ''}`}>
-        <h2 className='modalcreate__error'>{errorCreate}</h2>
+        <h2 className='modalcreate__error'>
+            {errorCreate==='C' ? 'choose a category' : errorCreate}
+        </h2>
         <form className='modalcreate__form' onSubmit={handleSubmit(submit)}>
             <button className='modalcreate__close'
                 type='button' onClick={handleClose}>
@@ -137,9 +135,14 @@ const ModalCreate = ({form, setForm, createProduct,
                     id='categoryId' type="text"
                     {...register('categoryId')}
                 >
-                    <option value={0}>0</option>
-                    <option value={1}>1</option>
-                    <option value={2}>2</option>
+                    {
+                        Array.isArray(categories) &&
+                        categories.map(category => (
+                            <option key={category.id} value={category.id}>
+                                {category.name}
+                            </option>
+                        ))
+                    }
                 </select>
             </div>
             <div className='modalcreate__field'>

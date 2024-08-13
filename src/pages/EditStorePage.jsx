@@ -67,6 +67,7 @@ const EditStorePage = () => {
             createProduct={createProduct}
             updateProduct={updateProduct}
             products={products}
+            categories={categories}
         />
         <ModalCategory
             category={category}
