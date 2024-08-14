@@ -3,7 +3,6 @@ import { useForm } from 'react-hook-form';
 import './styles/modalCreate.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { setUpdate } from '../../store/slices/update.slice';
-import useCrud from '../../hooks/useCrud';
 
 const ModalCreate = ({form, setForm, createProduct,
     updateProduct, products, categories}) => {

@@ -1,12 +1,27 @@
 [
   {
     "id": 1,
-    "mobile": "https://i.postimg.cc/SsBWD5Mn/clothes-mobile.png",
-    "desktop": "https://i.postimg.cc/cH3rFJZS/clothes-desktop.jpg"
+    "mobile": "https://i.postimg.cc/sxyPSNQ7/clothes-mobile.png",
+    "desktop": "https://i.postimg.cc/Jhzzycz0/clothes-desktop.png"
   },
   {
     "id": 2,
-    "mobile": "https://i.postimg.cc/FRN2BWXH/electronics-mobile.jpg",
-    "desktop": "https://i.postimg.cc/xdKwgr7Z/electronics-desktop.jpg"
+    "mobile": "https://i.postimg.cc/hjx6Kv7s/electronics-mobile.png",
+    "desktop": "https://i.postimg.cc/dtBM7hNS/electronics-desktop.png"
+  },
+  {
+    "id": 3,
+    "mobile": "https://i.postimg.cc/sxyPSNQ7/clothes-mobile.png",
+    "desktop": "https://i.postimg.cc/Jhzzycz0/clothes-desktop.png"
+  },
+  {
+    "id": 4,
+    "mobile": "https://i.postimg.cc/hjx6Kv7s/electronics-mobile.png",
+    "desktop": "https://i.postimg.cc/dtBM7hNS/electronics-desktop.png"
+  },
+  {
+    "id": 5,
+    "mobile": "https://i.postimg.cc/sxyPSNQ7/clothes-mobile.png",
+    "desktop": "https://i.postimg.cc/Jhzzycz0/clothes-desktop.png"
   }
 ]
