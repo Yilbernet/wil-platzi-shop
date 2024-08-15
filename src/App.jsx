@@ -9,6 +9,8 @@ import PurchasesPage from './pages/PurchasesPage';
 import ProductPage from './pages/ProductPage';
 import ModifyPage from './pages/ModifyPage';
 import EditStorePage from './pages/EditStorePage';
+import ProtectedStore from './pages/ProtectedStore';
+import CategoryPage from './pages/CategoryPage';
 
 function App() {
 
@@ -20,9 +22,12 @@ function App() {
         <Route path='/login' element={<LoginPage/>}/>
         <Route path='/register' element={<RegisterPage/>}/>
         <Route path='/product/:id' element={<ProductPage/>}/>
+        <Route path='/category/:id' element={<CategoryPage/>}/>
         <Route element={<ProtectedRoutes/>}>
           <Route path='/purchases' element={<PurchasesPage/>}/>
           <Route path='/modify' element={<ModifyPage/>}/>
+        </Route>
+        <Route element={<ProtectedStore/>}>
           <Route path='/edit-store' element={<EditStorePage/>}/>
         </Route>
         <Route path='*' element={<h2>Sorry, This page hasn't been found</h2>}/>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './styles/prodInfo.css';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -11,6 +11,10 @@ const ProdInfo = ({product}) => {
   const email = localStorage.getItem('email_token');
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    setCount(1);
+  }, [product]);
 
   const handleLess = () => {
     if (count > 1) {

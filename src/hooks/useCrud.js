@@ -40,7 +40,7 @@ const useCrud = () => {
     const url = `${urlBase}${path}/${id}`;
     axios.put(url, data)
       .then(res => {
-        console.log(res.data);
+        // console.log(res.data);
         if (Array.isArray(apiData)) {
           setApiData(apiData.map(prod =>
             prod.id===id ? res.data : prod

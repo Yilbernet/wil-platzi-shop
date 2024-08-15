@@ -3,6 +3,7 @@ import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css/skyblue';
 import './styles/sliderBanners.css';
 import bannersImg from '../../utils/banners.json';
+import { Link } from 'react-router-dom';
 
 const SliderBanners = () => {
 
@@ -18,11 +19,13 @@ const SliderBanners = () => {
         {
           bannersImg.map(image => (
             <SplideSlide key={image.id}>
+              <Link to={`/category/${image.id}`}>
                 <picture className='sliderbanners__img'>
                     <source media="(width > 850px)" srcset={image.desktop}/>
                     <source srcset={image.mobile}/>
                     <img src={image.desktop} alt="Banner image" />
                 </picture>
+              </Link>
             </SplideSlide>
           ))
         }
