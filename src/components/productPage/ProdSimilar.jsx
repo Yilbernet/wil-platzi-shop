@@ -31,43 +31,46 @@ const ProdSimilar = ({product}) => {
   return (
     <div className='prodsimilar'>
       <h2 className='prodsimilar__title'>Discover similar products</h2>
-      <Splide
-        options={ {
-          type: 'loop',
-          autoplay: true,
-          interval: 5000,
-          intersection: {
-            inView: {
-              autoplay: true,
+      {
+        products?.filter(prodFilter).length > 0 &&
+        <Splide
+          options={ {
+            type: 'loop',
+            autoplay: true,
+            interval: 5000,
+            intersection: {
+              inView: {
+                autoplay: true,
+              },
             },
-          },
-          perPage: 4,
-          breakpoints: {
-            1200: {
-              perPage: 3,
+            perPage: 4,
+            breakpoints: {
+              1200: {
+                perPage: 3,
+              },
+              910: {
+                perPage: 2,
+              },
+              650: {
+                perPage: 1,
+              },
             },
-            910: {
-              perPage: 2,
-            },
-            650: {
-              perPage: 1,
-            },
-          },
-          gap: '30px',
-          padding: '30px',
-        } }
-        extensions={{ Intersection }}
-      >
-        {
-          products?.filter(prodFilter).map(prod => (
-            <SplideSlide key={prod.id}>
-              <ProdCard
-                prod={prod}
-              />
-            </SplideSlide>
-          ))
-        }
-      </Splide>
+            gap: '30px',
+            padding: '30px',
+          } }
+          extensions={{ Intersection }}
+        >
+          {
+            products.filter(prodFilter).map(prod => (
+              <SplideSlide key={prod.id}>
+                <ProdCard
+                  prod={prod}
+                />
+              </SplideSlide>
+            ))
+          }
+        </Splide>
+      }
     </div>
   )
 }
