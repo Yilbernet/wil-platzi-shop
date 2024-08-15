@@ -28,6 +28,9 @@
     display: flex;
     justify-content: space-around;
 }
+.dark .homepage__menu {
+    background-color: gray;
+}
 .homepage__container {
     padding: 15px;
     display: flex;

@@ -5,6 +5,9 @@
     justify-content: space-between;
     align-items: center;
 }
+.dark .navbar__navbar {
+    background-color: gray;
+}
 .navbar__list {
     display: flex;
     align-items: center;

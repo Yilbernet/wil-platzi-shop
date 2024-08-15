@@ -1,6 +1,5 @@
 import React from 'react';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
-import { Intersection } from "@splidejs/splide-extension-intersection";
 import '@splidejs/react-splide/css/skyblue';
 import './styles/prodSlider.css';
 
@@ -15,13 +14,7 @@ const ProdSlider = ({product}) => {
             type: 'loop',
             autoplay: true,
             interval: 5000,
-            intersection: {
-              inView: {
-                autoplay: true,
-              },
-            },
           } }
-          extensions={{ Intersection }}
         >
           {
             product.images.map(image => (

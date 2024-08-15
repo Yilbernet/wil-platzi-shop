@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
-import { Intersection } from "@splidejs/splide-extension-intersection";
 import '@splidejs/react-splide/css/skyblue';
 import './styles/prodSimilar.css';
 import useCrud from '../../hooks/useCrud';
@@ -38,12 +37,8 @@ const ProdSimilar = ({product}) => {
             type: 'loop',
             autoplay: true,
             interval: 5000,
-            intersection: {
-              inView: {
-                autoplay: true,
-              },
-            },
             perPage: 4,
+            perMove: 1,
             breakpoints: {
               1200: {
                 perPage: 3,
@@ -53,12 +48,12 @@ const ProdSimilar = ({product}) => {
               },
               650: {
                 perPage: 1,
+                pagination: false,
               },
             },
             gap: '30px',
             padding: '30px',
           } }
-          extensions={{ Intersection }}
         >
           {
             products.filter(prodFilter).map(prod => (

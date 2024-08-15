@@ -1,9 +1,8 @@
 .prodcard {
     width: 250px;
-    border: 1px solid;
     padding: 15px;
     border-radius: 15px;
-    background-color: plum;
+    background-color: #5555;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -12,9 +11,6 @@
 }
 .prodcard:hover {
     box-shadow: 0 0 15px 5px slateblue;
-}
-.dark .prodcard {
-    background-color: slateblue;
 }
 .dark .prodcard:hover {
     box-shadow: 0 0 15px 5px plum;

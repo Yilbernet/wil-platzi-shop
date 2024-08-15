@@ -19,6 +19,10 @@
    align-items: center;
    gap: 10px;
 }
+.prodinfo__buttons button {
+   background-color: lightgrey;
+}
 .prodinfo__btn {
+   background-color: lightgrey;
    padding: 7px;
 }
