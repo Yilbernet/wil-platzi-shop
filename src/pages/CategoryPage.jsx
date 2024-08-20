@@ -3,6 +3,7 @@ import useCrud from '../hooks/useCrud';
 import { useParams } from 'react-router-dom';
 import ProdCard from '../components/homePage/ProdCard';
 import Pagination from '../components/homePage/Pagination';
+import SliderBanners from '../components/shared/SliderBanners';
 
 const CategoryPage = () => {
 
@@ -26,6 +27,7 @@ const CategoryPage = () => {
 
   return (
     <div className='categorypage'>
+        <SliderBanners/>
         <h2 className='categorypage__title'>
             {products?.[0].category.name}
         </h2>

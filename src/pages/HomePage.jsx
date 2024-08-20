@@ -10,6 +10,11 @@ import ModeButton from '../components/homePage/ModeButton';
 import MenuButton from '../components/homePage/MenuButton';
 import Pagination from '../components/homePage/Pagination';
 import SliderBanners from '../components/shared/SliderBanners';
+import ClothesPlace from '../components/categories/ClothesPlace';
+import ElectronicsPlace from '../components/categories/ElectronicsPlace';
+import FurniturePlace from '../components/categories/FurniturePlace';
+import ShoesPlace from '../components/categories/ShoesPlace';
+import MiscellaneousPlace from '../components/categories/MiscellaneousPlace';
 
 const HomePage = () => {
 
@@ -128,36 +133,45 @@ const HomePage = () => {
             />
             <ModeButton/>
         </div>
-        <div>
-            {
-                total > 1 &&
-                <Pagination
-                    page={page}
-                    setPage={setPage}
-                    total={total}
-                />
-            }
+        <div className='homepage__categories'>
+            <ClothesPlace/>
+            <ElectronicsPlace/>
+            <FurniturePlace/>
+            <ShoesPlace/>
+            <MiscellaneousPlace/>
         </div>
-        <div className='homepage__container'>
-            {
-                prodPages()?.map(prod => (
-                    <ProdCard
-                        key={prod.id}
-                        prod={prod}
+        {/* <>
+            <div>
+                {
+                    total > 1 &&
+                    <Pagination
+                        page={page}
+                        setPage={setPage}
+                        total={total}
                     />
-                ))
-            }
-        </div>
-        <div>
-            {
-                total > 1 &&
-                <Pagination
-                    page={page}
-                    setPage={setPage}
-                    total={total}
-                />
-            }
-        </div>
+                }
+            </div>
+            <div className='homepage__container'>
+                {
+                    prodPages()?.map(prod => (
+                        <ProdCard
+                            key={prod.id}
+                            prod={prod}
+                        />
+                    ))
+                }
+            </div>
+            <div>
+                {
+                    total > 1 &&
+                    <Pagination
+                        page={page}
+                        setPage={setPage}
+                        total={total}
+                    />
+                }
+            </div>
+        </> */}
     </div>
   )
 }

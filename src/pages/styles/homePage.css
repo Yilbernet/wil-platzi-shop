@@ -31,6 +31,11 @@
 .dark .homepage__menu {
     background-color: gray;
 }
+.homepage__categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
 .homepage__container {
     padding: 15px;
     display: flex;

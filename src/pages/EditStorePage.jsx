@@ -9,6 +9,7 @@ import ModalCategory from '../components/editStorePage/ModalCategory';
 
 const EditStorePage = () => {
 
+    const [change, setChange] = useState(false);
     const [form, setForm] = useState(false);
     const [category, setCategory] = useState(false);
     const [page, setPage] = useState(1);
@@ -41,6 +42,10 @@ const EditStorePage = () => {
         setCategory(true);
     }
 
+    const handleChange = () => {
+        setChange(!change);
+    }
+
     const quantity = 8;
     const total = Array.isArray(products) &&
     Math.ceil(products.length / quantity);
@@ -54,12 +59,22 @@ const EditStorePage = () => {
   return (
     <div className='editstore'>
         <div className='editstore__buttons'>
-            <button className='editstore__create' onClick={handleForm}>
-                Create product
+            <button className='editstore__change' onClick={handleChange}>
+                {
+                    change ?
+                    'View products' :
+                    'View categories'
+                }
             </button>
-            <button className='editstore__category' onClick={handleCategory}>
-                Create category
-            </button>
+            {
+                change ?
+                <button className='editstore__category' onClick={handleCategory}>
+                    Create category
+                </button> :
+                <button className='editstore__create' onClick={handleForm}>
+                    Create product
+                </button>
+            }
         </div>
         <ModalCreate
             form={form}
@@ -76,50 +91,55 @@ const EditStorePage = () => {
             updateCategory={updateCategory}
             categories={categories}
         />
-        <div className='editstore__categories'>
-            {
-                Array.isArray(categories) &&
-                categories?.map(cate => (
-                    <EditCategory
-                        key={cate.id}
-                        cate={cate}
-                        deleteCategory={deleteCategory}
-                    />
-                ))
-            }
-        </div>
-        <div>
-            {
-                total > 1 &&
-                <Pagination
-                    page={page}
-                    setPage={setPage}
-                    total={total}
-                />
-            }
-        </div>
-        <div className='editstore__container'>
-            {
-                Array.isArray(products) &&
-                prodPages()?.map(prod => (
-                    <EditProd
-                        key={prod.id}
-                        prod={prod}
-                        deleteProduct={deleteProduct}
-                    />
-                ))
-            }
-        </div>
-        <div>
-            {
-                total > 1 &&
-                <Pagination
-                    page={page}
-                    setPage={setPage}
-                    total={total}
-                />
-            }
-        </div>
+        {
+            change ?
+            <div className='editstore__categories'>
+                {
+                    Array.isArray(categories) &&
+                    categories?.map(cate => (
+                        <EditCategory
+                            key={cate.id}
+                            cate={cate}
+                            deleteCategory={deleteCategory}
+                        />
+                    ))
+                }
+            </div> :
+            <>
+                <div>
+                    {
+                        total > 1 &&
+                        <Pagination
+                            page={page}
+                            setPage={setPage}
+                            total={total}
+                        />
+                    }
+                </div>
+                <div className='editstore__container'>
+                    {
+                        Array.isArray(products) &&
+                        prodPages()?.map(prod => (
+                            <EditProd
+                                key={prod.id}
+                                prod={prod}
+                                deleteProduct={deleteProduct}
+                            />
+                        ))
+                    }
+                </div>
+                <div>
+                    {
+                        total > 1 &&
+                        <Pagination
+                            page={page}
+                            setPage={setPage}
+                            total={total}
+                        />
+                    }
+                </div>
+            </>
+        }
     </div>
   )
 }

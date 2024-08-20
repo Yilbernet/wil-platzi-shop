@@ -1,0 +1,14 @@
+.clothesplace {
+    width: 70%;
+    height: 900px;
+    overflow-y: auto;
+}
+.clothesplace__title {
+    padding-left: 30px;
+}
+.clothesplace__container {
+    padding: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}

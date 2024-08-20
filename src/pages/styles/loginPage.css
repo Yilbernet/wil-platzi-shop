@@ -40,7 +40,7 @@
 }
 .loginpage__logout-btn {
     position: absolute;
-    top: 180px;
+    bottom: 190px;
     right: 30px;
 }
 .loginpage__login {
