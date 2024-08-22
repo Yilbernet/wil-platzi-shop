@@ -2,19 +2,25 @@ import React, { useEffect } from 'react';
 import useCrud from '../../hooks/useCrud';
 import ProdCard from '../homePage/ProdCard';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
+import '@splidejs/react-splide/css/skyblue';
 import './styles/electronicsPlace.css';
+import { Link } from 'react-router-dom';
 
 const ElectronicsPlace = () => {
 
     const [products, getProducts] = useCrud();
 
+    const category = 2;
+
     useEffect(() => {
-      getProducts('/products/?categoryId=2');
+      getProducts(`/products/?categoryId=${category}`);
     }, []);
 
   return (
     <div className='electronicsplace'>
-        <h2 className='electronicsplace__title'>Electronics</h2>
+        <Link to={`/category/${category}`}>
+            <h2 className='electronicsplace__title'>Electronics</h2>
+        </Link>
         <Splide options={ {
                 type: 'loop',
                 autoplay: true,

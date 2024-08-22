@@ -136,8 +136,8 @@ const HomePage = () => {
         <div className='homepage__categories'>
             <ClothesPlace/>
             <ElectronicsPlace/>
-            <FurniturePlace/>
             <ShoesPlace/>
+            <FurniturePlace/>
             <MiscellaneousPlace/>
         </div>
         {/* <>

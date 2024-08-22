@@ -2,18 +2,23 @@ import React, { useEffect } from 'react';
 import useCrud from '../../hooks/useCrud';
 import ProdCard from '../homePage/ProdCard';
 import './styles/clothesPlace.css';
+import { Link } from 'react-router-dom';
 
 const ClothesPlace = () => {
 
     const [products, getProducts] = useCrud();
 
+    const category = 1;
+
     useEffect(() => {
-      getProducts('/products/?categoryId=1');
+      getProducts(`/products/?categoryId=${category}`);
     }, []);
 
   return (
     <div className='clothesplace'>
-        <h2 className='clothesplace__title'>Clothes</h2>
+        <Link to={`/category/${category}`}>
+          <h2 className='clothesplace__title'>Clothes</h2>
+        </Link>
         <div className='clothesplace__container'>
             {
                 products?.map(prod => (

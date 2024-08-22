@@ -1,0 +1,9 @@
+.shoesplace {
+    width: 100%;
+}
+.shoesplace__title {
+    padding-left: 30px;
+}
+.shoesplace .splide__track {
+    padding: 30px 0;
+}
