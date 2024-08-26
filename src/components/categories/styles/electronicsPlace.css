@@ -18,3 +18,27 @@
 .electronicsplace button.splide__arrow:hover {
     transform: translate(-50%);
 }
+
+@media (width < 1010px) {
+    .electronicsplace {
+        width: 35%;
+    }
+}
+@media (width < 900px) {
+    .electronicsplace {
+        width: 45%;
+    }
+}
+@media (width < 700px) {
+    .electronicsplace {
+        width: 55%;
+    }
+}
+@media (width < 600px) {
+    .electronicsplace {
+        width: 100%;
+    }
+    .electronicsplace .splide {
+        padding: 40px 0 20px;
+    }
+}

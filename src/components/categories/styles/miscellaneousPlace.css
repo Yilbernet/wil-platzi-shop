@@ -1,13 +1,13 @@
-.shoesplace {
+.miscellaneousplace {
     width: 100%;
 }
-.shoesplace__title {
+.miscellaneousplace__title {
     padding-left: 30px;
 }
-.shoesplace .splide__track {
+.miscellaneousplace .splide__track {
     padding: 30px 0;
 }
-.shoesplace .splide__slide {
+.miscellaneousplace .splide__slide {
     display: flex;
     justify-content: center;
     align-items: center;

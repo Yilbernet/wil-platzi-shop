@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import useCrud from '../../hooks/useCrud';
 import ProdCard from '../homePage/ProdCard';
+import { Link } from 'react-router-dom';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css/skyblue';
 import './styles/shoesPlace.css';
-import { Link } from 'react-router-dom';
 
 const ShoesPlace = () => {
 

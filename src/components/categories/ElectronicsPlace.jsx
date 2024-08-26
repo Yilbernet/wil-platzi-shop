@@ -29,6 +29,13 @@ const ElectronicsPlace = () => {
                 perMove: 1,
                 direction: 'ttb',
                 height   : '900px',
+                breakpoints: {
+                    599: {
+                      perPage: 1,
+                      height   : '475px',
+                      pagination: false,
+                    },
+                },
                 padding: '10px',
                 gap: '10px',
             } } >
