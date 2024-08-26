@@ -28,6 +28,7 @@ const HomePage = () => {
     const [order, setOrder] = useState(0);
     const [menu, setMenu] = useState(false);
     const [page, setPage] = useState(1);
+    const [search, setSearch] = useState(false);
 
     useEffect(() => {
         getProducts('/products');
@@ -35,9 +36,16 @@ const HomePage = () => {
 
     useEffect(() => {
         setPage(1);
+        if (title[0] === '' &&
+            category === '' &&
+            price.min === 0 &&
+            price.max === Infinity &&
+            order === 0) {
+            setSearch(false);
+        } else {
+            setSearch(true);
+        }
     }, [title, category, price, order]);
-
-    // console.log(products);
 
     const prodFilters = (prod) => {
         const perImage = prod.images[0].includes('https://') &&
@@ -133,45 +141,49 @@ const HomePage = () => {
             />
             <ModeButton/>
         </div>
-        <div className='homepage__categories'>
-            <ClothesPlace/>
-            <ElectronicsPlace/>
-            <ShoesPlace/>
-            <FurniturePlace/>
-            <MiscellaneousPlace/>
-        </div>
-        {/* <>
-            <div>
-                {
-                    total > 1 &&
-                    <Pagination
-                        page={page}
-                        setPage={setPage}
-                        total={total}
-                    />
-                }
-            </div>
-            <div className='homepage__container'>
-                {
-                    prodPages()?.map(prod => (
-                        <ProdCard
-                            key={prod.id}
-                            prod={prod}
+        {
+            search ?
+            <>
+                <div>
+                    {
+                        total > 1 &&
+                        <Pagination
+                            page={page}
+                            setPage={setPage}
+                            total={total}
                         />
-                    ))
-                }
+                    }
+                </div>
+                <div className='homepage__container'>
+                    {
+                        prodPages()?.map(prod => (
+                            <ProdCard
+                                key={prod.id}
+                                prod={prod}
+                            />
+                        ))
+                    }
+                </div>
+                <div>
+                    {
+                        total > 1 &&
+                        <Pagination
+                            page={page}
+                            setPage={setPage}
+                            total={total}
+                        />
+                    }
+                </div>
+            </>
+            :
+            <div className='homepage__categories'>
+                <ClothesPlace/>
+                <ElectronicsPlace/>
+                <ShoesPlace/>
+                <FurniturePlace/>
+                <MiscellaneousPlace/>
             </div>
-            <div>
-                {
-                    total > 1 &&
-                    <Pagination
-                        page={page}
-                        setPage={setPage}
-                        total={total}
-                    />
-                }
-            </div>
-        </> */}
+        }
     </div>
   )
 }

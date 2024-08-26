@@ -4,7 +4,7 @@ const MenuButton = ({setMenu}) => {
 
     const handleMenu = (event) => {
       event.stopPropagation();
-      setMenu(true);
+      setMenu(menu => !menu);
     }
 
   return (

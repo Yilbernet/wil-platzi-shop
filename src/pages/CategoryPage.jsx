@@ -12,8 +12,9 @@ const CategoryPage = () => {
     const { id } = useParams();
 
     useEffect(() => {
-      getProducts(`/products/?categoryId=${id}`);
-    }, []);
+        setPage(1);
+        getProducts(`/products/?categoryId=${id}`);
+    }, [id]);
 
     const quantity = 8;
     const total = Math.ceil(
