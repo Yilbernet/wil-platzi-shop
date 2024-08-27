@@ -79,7 +79,10 @@ const LoginPage = () => {
   }
 
   const handleEye = () => {
-    setEyeIcon(!eyeIcon);
+    setEyeIcon(false);
+    setTimeout(() => {
+      setEyeIcon(true);
+    }, 3000);
   }
 
   const handleEditStore = () => {
@@ -124,8 +127,7 @@ const LoginPage = () => {
                 <input {...register('password')} id='password'
                   type={eyeIcon ? "password" : 'text'} />
                 <ion-icon
-                    onMouseDown={handleEye}
-                    onMouseUp={handleEye}
+                    onClick={handleEye}
                     name={eyeIcon ? 'eye' : 'eye-off'}
                 >
                 </ion-icon>

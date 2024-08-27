@@ -76,11 +76,17 @@ const RegisterPage = () => {
     }
 
     const handleEye1 = () => {
-        setEyeIcon1(!eyeIcon1);
+        setEyeIcon1(false);
+        setTimeout(() => {
+            setEyeIcon1(true);
+        }, 3000);
     }
 
     const handleEye2 = () => {
-        setEyeIcon2(!eyeIcon2);
+        setEyeIcon2(false);
+        setTimeout(() => {
+            setEyeIcon2(true);
+        }, 3000);
     }
 
   return (
@@ -105,8 +111,7 @@ const RegisterPage = () => {
                 <input {...register('password')} id='password'
                     type={eyeIcon1 ? "password" : 'text'} />
                 <ion-icon
-                    onMouseDown={handleEye1}
-                    onMouseUp={handleEye1}
+                    onClick={handleEye1}
                     name={eyeIcon1 ? 'eye' : 'eye-off'}
                 >
                 </ion-icon>
@@ -116,8 +121,7 @@ const RegisterPage = () => {
                 <input {...register('password2')} id='password2'
                     type={eyeIcon2 ? "password" : 'text'} />
                 <ion-icon
-                    onMouseDown={handleEye2}
-                    onMouseUp={handleEye2}
+                    onClick={handleEye2}
                     name={eyeIcon2 ? 'eye' : 'eye-off'}
                 >
                 </ion-icon>

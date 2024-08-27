@@ -16,14 +16,23 @@ const CategoryPage = () => {
         getProducts(`/products/?categoryId=${id}`);
     }, [id]);
 
+    const prodFilters = (prod) => {
+        return prod.images[0].includes('https://') &&
+                (prod.images[0].includes('.png') ||
+                prod.images[0].includes('.jpg') ||
+                prod.images[0].includes('.gif') ||
+                prod.images[0].includes('.webp') ||
+                prod.images[0].includes('.jpeg'));
+    }
+
     const quantity = 8;
     const total = Math.ceil(
-        products?.length / quantity
+        products?.filter(prodFilters).length / quantity
     );
     const prodPages = () => {
         const end = quantity * page;
         const start = end - quantity;
-        return products?.slice(start, end);
+        return products?.filter(prodFilters).slice(start, end);
     }
 
   return (

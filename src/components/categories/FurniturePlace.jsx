@@ -14,6 +14,15 @@ const FurniturePlace = () => {
       getProducts(`/products/?categoryId=${category}`);
     }, []);
 
+    const prodFilters = (prod) => {
+      return prod.images[0].includes('https://') &&
+              (prod.images[0].includes('.png') ||
+              prod.images[0].includes('.jpg') ||
+              prod.images[0].includes('.gif') ||
+              prod.images[0].includes('.webp') ||
+              prod.images[0].includes('.jpeg'));
+    }
+
   return (
     <div className='furnitureplace'>
         <Link to={`/category/${category}`}>
@@ -21,7 +30,7 @@ const FurniturePlace = () => {
         </Link>
         <div className='furnitureplace__container'>
             {
-                products?.map(prod => (
+                products?.filter(prodFilters).map(prod => (
                     <ProdCard
                         key={prod.id}
                         prod={prod}

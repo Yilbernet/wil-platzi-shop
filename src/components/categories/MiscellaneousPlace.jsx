@@ -16,6 +16,15 @@ const MiscellaneousPlace = () => {
       getProducts(`/products/?categoryId=${category}`);
     }, []);
 
+    const prodFilters = (prod) => {
+      return prod.images[0].includes('https://') &&
+              (prod.images[0].includes('.png') ||
+              prod.images[0].includes('.jpg') ||
+              prod.images[0].includes('.gif') ||
+              prod.images[0].includes('.webp') ||
+              prod.images[0].includes('.jpeg'));
+    }
+
   return (
     <div className='miscellaneousplace'>
       <Link to={`/category/${category}`}>
@@ -45,7 +54,7 @@ const MiscellaneousPlace = () => {
             padding: '30px',
           } } >
           {
-            products.map(prod => (
+            products.filter(prodFilters).map(prod => (
               <SplideSlide key={prod.id}>
                   <ProdCard
                       prod={prod}

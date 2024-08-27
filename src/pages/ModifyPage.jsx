@@ -52,15 +52,24 @@ const ModifyPage = () => {
     }
 
     const handleEye1 = () => {
-        setEyeIcon1(!eyeIcon1);
+        setEyeIcon1(false);
+        setTimeout(() => {
+            setEyeIcon1(true);
+        }, 3000);
     }
 
     const handleEye2 = () => {
-        setEyeIcon2(!eyeIcon2);
+        setEyeIcon2(false);
+        setTimeout(() => {
+            setEyeIcon2(true);
+        }, 3000);
     }
 
     const handleEye3 = () => {
-        setEyeIcon3(!eyeIcon3);
+        setEyeIcon3(false);
+        setTimeout(() => {
+            setEyeIcon3(true);
+        }, 3000);
     }
 
   return (
@@ -84,8 +93,7 @@ const ModifyPage = () => {
                 <input {...register('oldPassword')} id='oldPassword'
                 type={eyeIcon1 ? "password" : 'text'} />
                 <ion-icon
-                    onMouseDown={handleEye1}
-                    onMouseUp={handleEye1}
+                    onClick={handleEye1}
                     name={eyeIcon1 ? 'eye' : 'eye-off'}
                 >
                 </ion-icon>
@@ -95,8 +103,7 @@ const ModifyPage = () => {
                 <input {...register('newPassword')} id='newPassword'
                 type={eyeIcon2 ? "password" : 'text'} />
                 <ion-icon
-                    onMouseDown={handleEye2}
-                    onMouseUp={handleEye2}
+                    onClick={handleEye2}
                     name={eyeIcon2 ? 'eye' : 'eye-off'}
                 >
                 </ion-icon>
@@ -106,8 +113,7 @@ const ModifyPage = () => {
                 <input {...register('repeatPassword')} id='repeatPassword'
                 type={eyeIcon3 ? "password" : 'text'} />
                 <ion-icon
-                    onMouseDown={handleEye3}
-                    onMouseUp={handleEye3}
+                    onClick={handleEye3}
                     name={eyeIcon3 ? 'eye' : 'eye-off'}
                 >
                 </ion-icon>

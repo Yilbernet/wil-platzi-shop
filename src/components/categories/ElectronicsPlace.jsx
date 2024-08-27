@@ -16,39 +16,51 @@ const ElectronicsPlace = () => {
       getProducts(`/products/?categoryId=${category}`);
     }, []);
 
+    const prodFilters = (prod) => {
+        return prod.images[0].includes('https://') &&
+                (prod.images[0].includes('.png') ||
+                prod.images[0].includes('.jpg') ||
+                prod.images[0].includes('.gif') ||
+                prod.images[0].includes('.webp') ||
+                prod.images[0].includes('.jpeg'));
+    }
+
   return (
     <div className='electronicsplace'>
         <Link to={`/category/${category}`}>
             <h2 className='electronicsplace__title'>Electronics</h2>
         </Link>
-        <Splide options={ {
-                type: 'loop',
-                autoplay: true,
-                interval: 5000,
-                perPage: 2,
-                perMove: 1,
-                direction: 'ttb',
-                height   : '900px',
-                breakpoints: {
-                    599: {
-                      perPage: 1,
-                      height   : '475px',
-                      pagination: false,
+        {
+            Array.isArray(products) &&
+            <Splide options={ {
+                    type: 'loop',
+                    autoplay: true,
+                    interval: 5000,
+                    perPage: 2,
+                    perMove: 1,
+                    direction: 'ttb',
+                    height   : '900px',
+                    breakpoints: {
+                        599: {
+                        perPage: 1,
+                        height   : '475px',
+                        pagination: false,
+                        },
                     },
-                },
-                padding: '10px',
-                gap: '10px',
-            } } >
-            {
-                products?.map(prod => (
-                    <SplideSlide key={prod.id}>
-                        <ProdCard
-                            prod={prod}
-                        />
-                    </SplideSlide>
-                ))
-            }
-        </Splide>
+                    padding: '10px',
+                    gap: '10px',
+                } } >
+                {
+                    products.filter(prodFilters).map(prod => (
+                        <SplideSlide key={prod.id}>
+                            <ProdCard
+                                prod={prod}
+                            />
+                        </SplideSlide>
+                    ))
+                }
+            </Splide>
+        }
     </div>
   )
 }
