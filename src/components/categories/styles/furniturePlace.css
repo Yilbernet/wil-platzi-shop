@@ -5,6 +5,7 @@
     padding-left: 30px;
 }
 .furnitureplace__container {
+    border: 1px solid #5555;
     padding: 10px;
     scrollbar-color: dodgerblue transparent;
     height: 925px;

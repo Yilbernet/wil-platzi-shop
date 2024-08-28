@@ -87,6 +87,7 @@
     padding: 5px 10px;
     border-radius: 10px;
     position: absolute;
+    z-index: 20;
     text-align: center;
     top: -75px;
     left: 50%;

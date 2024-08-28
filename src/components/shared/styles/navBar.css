@@ -4,9 +4,44 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
+    z-index: 10;
 }
 .dark .navbar__navbar {
     background-color: gray;
+}
+.navbar__title {
+    position: relative;
+    transition: transform .5s;
+}
+.navbar__title:hover {
+    transform: scale(1.05);
+    transition: transform .5s;
+}
+.navbar__title::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: scale(0.25);
+    opacity: 0;
+    width: max-content;
+    content: 'Go to home';
+    background-color: white;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: opacity .5s,
+                transform .5s,
+                top .5s;
+}
+.navbar__title:hover::after {
+    opacity: 1;
+    transform: scale(0.75);
+    top: 100%;
+    transition: opacity .5s,
+                transform .5s,
+                top .5s;
 }
 .navbar__list {
     display: flex;
